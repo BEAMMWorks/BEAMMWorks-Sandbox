@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BEAMMWorks Notion</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(145deg, #0f0f1c, #1a1a2e);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      width: 100%;
+      padding: 2rem;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 10px #00fff2;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      background: linear-gradient(90deg, #00fff2, #ff00c8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: #00fff2;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff00c8;
+    }
+
+    .content {
+      max-width: 1000px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .content h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #00fff2;
+    }
+
+    .content p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    .notion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .template-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #00fff2;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .template-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px #00fff2;
+    }
+
+    .template-card h3 {
+      color: #ff00c8;
+      margin-bottom: 0.5rem;
+    }
+
+    .template-card p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BEAMMWorks Notion</h1>
+    <nav>
+      <a href="index.html">🏠 Home</a>
+      <a href="gaming.html">🕹️ Gaming</a>
+      <a href="photography.html">📷 Photography</a>
+      <a href="sports.html">🏈 Sports</a>
+    </nav>
+  </header>
+
+  <div class="content">
+    <h2>Gamify Your Goals</h2>
+    <p>
+      BEAMMWorks Notion templates are crafted for creators, developers, dreamers, and doers.
+      From habit streak calendars to XP-based productivity systems, every page helps you level up IRL.
+    </p>
+
+    <div class="notion-grid">
+      <div class="template-card">
+        <h3>🎮 Game Dev OS</h3>
+        <p>A full system to track scripts, assets, tasks, milestones, XP, localization, and more.</p>
+      </div>
+
+      <div class="template-card">
+        <h3>📅 Habit Heatmap</h3>
+        <p>Emoji-coded calendar that tracks daily habit success and visual streaks over time.</p>
+      </div>
+
+      <div class="template-card">
+        <h3>🧠 Creative Brain</h3>
+        <p>Store your ideas, references, characters, and creative prompts all in one beautiful place.</p>
+      </div>
+
+      <div class="template-card">
+        <h3>📈 Project Planner</h3>
+        <p>Organize multiple projects with XP profiles, difficulty settings, and progress automation.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
