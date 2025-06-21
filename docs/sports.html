@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BEAMMWorks Sports</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(145deg, #0f0f1c, #1a1a2e);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      width: 100%;
+      padding: 2rem;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 10px #00fff2;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      background: linear-gradient(90deg, #00fff2, #ff00c8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: #00fff2;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff00c8;
+    }
+
+    .content {
+      max-width: 1000px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .content h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #00fff2;
+    }
+
+    .content p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    .sports-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .sports-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #00fff2;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .sports-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 15px #00fff2;
+    }
+
+    .sports-card h3 {
+      color: #ff00c8;
+      margin-bottom: 0.5rem;
+    }
+
+    .sports-card p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>BEAMMWorks Sports</h1>
+    <nav>
+      <a href="index.html">🏠 Home</a>
+      <a href="gaming.html">🕹️ Gaming</a>
+      <a href="photography.html">📷 Photography</a>
+      <a href="notion.html">🧠 Notion</a>
+    </nav>
+  </header>
+
+  <div class="content">
+    <h2>Play the Odds, Power the Community</h2>
+    <p>
+      BEAMMWorks Sports brings you light analytics, community polls, and playful prediction games — with a legacy rooted in ROI-focused betting and data-driven fandom.
+    </p>
+
+    <div class="sports-grid">
+      <div class="sports-card">
+        <h3>🏀 Team Polls</h3>
+        <p>Cast your votes for who will win — basketball, football, baseball and more. Leaderboards coming soon!</p>
+      </div>
+
+      <div class="sports-card">
+        <h3>📊 Light Analytics</h3>
+        <p>Explore clean breakdowns of stats that matter most to fans. No clutter. Just insights.</p>
+      </div>
+
+      <div class="sports-card">
+        <h3>🎲 Prediction Games</h3>
+        <p>Join in for simple pick’em challenges or streak-based scoring. No gambling required.</p>
+      </div>
+
+      <div class="sports-card">
+        <h3>💰 Betting Returns?</h3>
+        <p>We may reintroduce sports betting content in the future. Join our Discord to get early access.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
