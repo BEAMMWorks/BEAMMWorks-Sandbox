@@ -1,24 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Daily Streak</title>
-  <style>
-    body { font-family: sans-serif; text-align: center; margin-top: 100px; }
-    button { padding: 10px 20px; font-size: 16px; }
-    .streak { font-size: 24px; margin-bottom: 20px; }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BEAMMWorks: Portal</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preload" href="assets/font.woff2" as="font" type="font/woff2" crossorigin>
 </head>
 <body>
-  <div class="streak" id="streakText">Loading...</div>
-  <button onclick="checkIn()">Check In</button>
+
+  <div id="stars"></div>
+
+  <main class="portal">
+    <h1 class="glitch" data-text="BEAMMWORKS">BEAMMWORKS</h1>
+    <div class="core">
+      <div class="pulse-ring"></div>
+      <div class="core-text">Welcome, dreambuilder</div>
+    </div>
+    <div class="streak">
+      🔥 Streak: <span id="streak-count">0</span> days
+      <button onclick="checkIn()">Check In</button>
+    </div>
+  </main>
+
+  <!-- Optional Ambient Sound -->
+  <audio id="ambience" autoplay loop>
+    <source src="assets/ambient.mp3" type="audio/mpeg" />
+  </audio>
 
   <script>
+    // Streak Logic
     const streakKey = "dailyStreak";
     const lastCheckKey = "lastCheck";
 
     function getToday() {
-      const now = new Date();
-      return now.toISOString().split('T')[0]; // YYYY-MM-DD
+      return new Date().toISOString().split('T')[0];
     }
 
     function checkIn() {
@@ -26,31 +42,26 @@
       const lastCheck = localStorage.getItem(lastCheckKey);
       let streak = parseInt(localStorage.getItem(streakKey)) || 0;
 
-      if (lastCheck === today) {
-        alert("Already checked in today!");
-      } else {
-        const yesterday = new Date();
-        yesterday.setDate(yesterday.getDate() - 1);
-        const yDate = yesterday.toISOString().split('T')[0];
+      if (lastCheck === today) return alert("Already checked in!");
 
-        if (lastCheck === yDate) {
-          streak += 1;
-        } else {
-          streak = 1;
-        }
+      const yesterday = new Date();
+      yesterday.setDate(yesterday.getDate() - 1);
+      const yDate = yesterday.toISOString().split('T')[0];
 
-        localStorage.setItem(streakKey, streak);
-        localStorage.setItem(lastCheckKey, today);
-        updateDisplay();
-      }
+      streak = (lastCheck === yDate) ? streak + 1 : 1;
+
+      localStorage.setItem(streakKey, streak);
+      localStorage.setItem(lastCheckKey, today);
+      updateStreak();
     }
 
-    function updateDisplay() {
+    function updateStreak() {
       const streak = localStorage.getItem(streakKey) || 0;
-      document.getElementById("streakText").textContent = `🔥 Current Streak: ${streak} day(s)`;
+      document.getElementById("streak-count").textContent = streak;
     }
 
-    updateDisplay();
+    updateStreak();
   </script>
+
 </body>
 </html>
