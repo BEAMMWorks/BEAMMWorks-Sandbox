@@ -1,67 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BEAMMWorks: Portal</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="preload" href="assets/font.woff2" as="font" type="font/woff2" crossorigin>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BEAMMWorks</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(145deg, #0f0f1c, #1a1a2e);
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      width: 100%;
+      padding: 2rem;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 10px #00fff2;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      background: linear-gradient(90deg, #00fff2, #ff00c8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: pulseColor 5s infinite alternate;
+    }
+
+    @keyframes pulseColor {
+      0% { filter: brightness(1); }
+      100% { filter: brightness(1.5); }
+    }
+
+    .intro {
+      max-width: 800px;
+      text-align: center;
+      padding: 2rem;
+      font-size: 1.25rem;
+      line-height: 1.6;
+    }
+
+    .sections {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 2rem;
+      width: 90%;
+      max-width: 1000px;
+      margin-bottom: 4rem;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #00fff2;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00fff2;
+    }
+
+    .card h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: #00fff2;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 1rem;
+      color: #00fff2;
+      text-decoration: none;
+      font-weight: bold;
+      border: 1px solid #00fff2;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      transition: background 0.3s;
+    }
+
+    .card a:hover {
+      background: #00fff2;
+      color: #000;
+    }
+  </style>
 </head>
 <body>
-
-  <div id="stars"></div>
-
-  <main class="portal">
-    <h1 class="glitch" data-text="BEAMMWORKS">BEAMMWORKS</h1>
-    <div class="core">
-      <div class="pulse-ring"></div>
-      <div class="core-text">Welcome, dreambuilder</div>
+  <header>
+    <h1>BEAMMWorks</h1>
+  </header>
+  <div class="intro">
+    Welcome to BEAMMWorks – a hub for future-forward creations. Whether you're here to explore indie games, download productivity tools, browse surreal photography, or join community sports insights, you've landed at the nexus of imagination and ambition.
+  </div>
+  <section class="sections">
+    <div class="card">
+      <h2>🕹️ Gaming</h2>
+      <p>Explore solo-developed indie games and devlogs – including playable WebGL demos and dev tools.</p>
+      <a href="pages/gaming.html">Enter</a>
     </div>
-    <div class="streak">
-      🔥 Streak: <span id="streak-count">0</span> days
-      <button onclick="checkIn()">Check In</button>
+    <div class="card">
+      <h2>📷 Photography</h2>
+      <p>Step into a quiet world of nature and animals through our evolving stock photo collections.</p>
+      <a href="pages/photography.html">Browse</a>
     </div>
-  </main>
-
-  <!-- Optional Ambient Sound -->
-  <audio id="ambience" autoplay loop>
-    <source src="assets/ambient.mp3" type="audio/mpeg" />
-  </audio>
-
-  <script>
-    // Streak Logic
-    const streakKey = "dailyStreak";
-    const lastCheckKey = "lastCheck";
-
-    function getToday() {
-      return new Date().toISOString().split('T')[0];
-    }
-
-    function checkIn() {
-      const today = getToday();
-      const lastCheck = localStorage.getItem(lastCheckKey);
-      let streak = parseInt(localStorage.getItem(streakKey)) || 0;
-
-      if (lastCheck === today) return alert("Already checked in!");
-
-      const yesterday = new Date();
-      yesterday.setDate(yesterday.getDate() - 1);
-      const yDate = yesterday.toISOString().split('T')[0];
-
-      streak = (lastCheck === yDate) ? streak + 1 : 1;
-
-      localStorage.setItem(streakKey, streak);
-      localStorage.setItem(lastCheckKey, today);
-      updateStreak();
-    }
-
-    function updateStreak() {
-      const streak = localStorage.getItem(streakKey) || 0;
-      document.getElementById("streak-count").textContent = streak;
-    }
-
-    updateStreak();
-  </script>
-
+    <div class="card">
+      <h2>🧠 Notion</h2>
+      <p>Powerful templates to supercharge your goals: planners, XP trackers, gamified workflows, and more.</p>
+      <a href="pages/notion.html">Level Up</a>
+    </div>
+    <div class="card">
+      <h2>🏈 Sports</h2>
+      <p>Participate in community polls, light analytics, and team predictions. Future sports betting may return!</p>
+      <a href="pages/sports.html">Play Ball</a>
+    </div>
+  </section>
 </body>
 </html>
