@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Daily Streak</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 100px; }
+    button { padding: 10px 20px; font-size: 16px; }
+    .streak { font-size: 24px; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <div class="streak" id="streakText">Loading...</div>
+  <button onclick="checkIn()">Check In</button>
+
+  <script>
+    const streakKey = "dailyStreak";
+    const lastCheckKey = "lastCheck";
+
+    function getToday() {
+      const now = new Date();
+      return now.toISOString().split('T')[0]; // YYYY-MM-DD
+    }
+
+    function checkIn() {
+      const today = getToday();
+      const lastCheck = localStorage.getItem(lastCheckKey);
+      let streak = parseInt(localStorage.getItem(streakKey)) || 0;
+
+      if (lastCheck === today) {
+        alert("Already checked in today!");
+      } else {
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        const yDate = yesterday.toISOString().split('T')[0];
+
+        if (lastCheck === yDate) {
+          streak += 1;
+        } else {
+          streak = 1;
+        }
+
+        localStorage.setItem(streakKey, streak);
+        localStorage.setItem(lastCheckKey, today);
+        updateDisplay();
+      }
+    }
+
+    function updateDisplay() {
+      const streak = localStorage.getItem(streakKey) || 0;
+      document.getElementById("streakText").textContent = `🔥 Current Streak: ${streak} day(s)`;
+    }
+
+    updateDisplay();
+  </script>
+</body>
+</html>
