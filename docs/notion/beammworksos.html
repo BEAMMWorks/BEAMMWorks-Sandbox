@@ -3,54 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BEAMMWorks OS</title>
+  <title>BEAMMWorks OS - Gamified Planner</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: system-ui, sans-serif;
-      background-color: #f5f5f5;
-      color: #111;
+      padding: 0;
+      background: #000;
+      font-family: 'Segoe UI', sans-serif;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    header {
-      background-color: #111;
-      color: white;
-      padding: 1rem 2rem;
+    .monitor {
+      position: relative;
+      width: 90vw;
+      max-width: 1280px;
+      aspect-ratio: 16 / 9;
+      background: url('https://raw.githubusercontent.com/BEAMMWorks/Nidoking/main/Overlays/switch_overlay.png') no-repeat center center;
+      background-size: contain;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2.5% 3.3%;
+    }
+
+    .screen {
       width: 100%;
-      text-align: center;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
-
-    iframe {
+      height: 100%;
       border: none;
-      width: 100%;
-      max-width: 1200px;
-      height: 90vh;
-      margin: 2rem 0;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #555;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
     }
   </style>
 </head>
 <body>
-  <header>🧠 BEAMMWorks OS - Gamified Notion Planner</header>
 
-  <iframe 
-    src="https://languid-snowplow-c15.notion.site/ebd/588b0c62c8ad4b73aecb26faced88f27" 
-    allowfullscreen>
-  </iframe>
+  <div class="monitor">
+    <iframe
+      class="screen"
+      src="https://languid-snowplow-c15.notion.site/ebd/588b0c62c8ad4b73aecb26faced88f27"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+  </div>
 
-  <footer>
-    © 2025 BEAMMWorks — Built with Notion & GitHub Pages
-  </footer>
 </body>
 </html>
